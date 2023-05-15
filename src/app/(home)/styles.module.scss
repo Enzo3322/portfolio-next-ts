@@ -1,0 +1,91 @@
+.hero {
+  min-height: calc(100vh - 90px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+  animation: blur 2s ease;
+  h1 {
+    font-size: 3.5rem;
+  }
+  p {
+    font-size: 1.2rem;
+    color: #ccc;
+  }
+  button {
+    border: 0;
+    background-color: transparent;
+    img {
+      height: 50px;
+      width: 50px;
+    }
+  }
+}
+
+.about {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .aboutContainer {
+    display: flex;
+    gap: 40px;
+    padding: 50px;
+    border: 1px solid #222;
+    border-radius: 6px;
+    .imageContainer {
+      img {
+        max-width: 400px;
+        border-radius: 8px;
+        height: 100%;
+      }
+    }
+    .textContainer {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      h2 {
+        font-size: 2rem;
+      }
+      p {
+        font-size: 1rem;
+        line-height: 30px;
+        letter-spacing: 1px;
+      }
+      a {
+        font-size: 1rem;
+        padding: 10px 20px;
+        border: 0;
+        border-radius: 6px;
+        width: 200px;
+        background-color: #f3f3f3;
+        color: #222;
+        text-align: center;
+      }
+    }
+  }
+}
+
+.projects {
+  padding: 0 20px;
+  min-height: 60vh;
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+  }
+}
+
+@keyframes blur {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
