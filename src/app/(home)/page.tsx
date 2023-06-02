@@ -1,28 +1,22 @@
 "use client";
-import getProjects from "@/services/useProject";
 import styles from "./styles.module.scss";
 import ProjectCard from "@/components/ProjectCard";
-import { useRef } from "react";
-import scrollToSection from "@/utils/scrollRef";
 
 export default async function Home() {
-  // const projects = await getProjects();
-
   const projects = [{ id: 1 }, { id: 2 }, { id: 3 }];
-  const aboutRef = useRef(null);
 
   return (
     <main>
       <section className={`${styles.hero}`}>
         <h1>Enzo Spagnolli</h1>
         <p>Senior Software Enginner</p>
-        <button onClick={() => scrollToSection(aboutRef)}>
+        <a onClick={() => (window.location.hash = "about")}>
           <picture>
             <img src="icons/arrowDown.svg" alt="Arrow down" />
           </picture>
-        </button>
+        </a>
       </section>
-      <section className={`${styles.about} `} ref={aboutRef}>
+      <section className={`${styles.about} `} id="about">
         <div className={styles.aboutContainer}>
           <div className={styles.imageContainer}>
             <picture>
@@ -43,8 +37,13 @@ export default async function Home() {
             <a href="/about">See more</a>
           </div>
         </div>
+        <a onClick={() => (window.location.hash = "projects")}>
+          <picture>
+            <img src="icons/arrowDown.svg" alt="Arrow down" />
+          </picture>
+        </a>
       </section>
-      <section className={`${styles.projects}`}>
+      <section className={`${styles.projects}`} id="projects">
         <h2>Projects</h2>
         <div className={styles.grid}>
           {projects.map((project: any, i: number) => (

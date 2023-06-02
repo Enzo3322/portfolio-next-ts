@@ -1,5 +1,5 @@
 .hero {
-  min-height: calc(100vh - 90px);
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,8 +13,11 @@
     font-size: 1.2rem;
     color: #ccc;
   }
-  button {
+  a {
     border: 0;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
     background-color: transparent;
     img {
       height: 50px;
@@ -24,10 +27,12 @@
 }
 
 .about {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  gap: 2rem;
   .aboutContainer {
     display: flex;
     gap: 40px;
@@ -65,6 +70,10 @@
       }
     }
   }
+  > a {
+    width: 50px;
+    height: 50px;
+  }
 }
 
 .projects {
@@ -87,5 +96,47 @@
   }
   100% {
     opacity: 1;
+  }
+}
+
+@media (max-width: 40rem) {
+  .hero {
+    h1 {
+      font-size: 2.5rem;
+    }
+  }
+
+  .about {
+    height: auto;
+    padding-top: 6rem;
+    .aboutContainer {
+      flex-direction: column;
+      padding: 20px;
+      .imageContainer {
+        img {
+          width: 100%;
+        }
+      }
+      .textContainer {
+        a {
+          margin-top: 2rem;
+        }
+      }
+    }
+  }
+
+  .projects {
+    margin-top: 4rem;
+    .grid {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  @keyframes blur {
+    0% {
+    }
+    100% {
+    }
   }
 }

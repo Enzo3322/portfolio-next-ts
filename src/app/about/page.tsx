@@ -41,14 +41,14 @@ export default function About() {
             </p>
           </div>
         </div>
-        <button onClick={() => scrollToSection(aboutRef)}>
+        <a onClick={() => (window.location.hash = "skills")}>
           <picture>
             <img src="icons/arrowDown.svg" alt="Arrow down" />
           </picture>
-        </button>
+        </a>
       </section>
 
-      <section ref={aboutRef} className={styles.skills}>
+      <section ref={aboutRef} className={styles.skills} id="skills">
         <h2>Skills</h2>
         <div className={styles.skillsGrid}>
           <div className={styles.card}>

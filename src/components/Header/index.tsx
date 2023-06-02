@@ -1,27 +1,42 @@
-import Link from "next/link";
+"use client";
+import { useState } from "react";
 import styles from "./styles.module.scss";
 
 export default function Header() {
+  const [show, setShow] = useState(false);
+
+  const handleShowMenu = (state: boolean) => {
+    setShow(state);
+  };
+
+  const isMobile = window.innerWidth < 640;
+
   return (
     <header className={styles.header}>
       <nav className={styles.nav}>
-        <div className={styles.linksWrapper}>
-          <p>Enzo Spagnolli</p>
-          <ul>
+        <p className={styles.logo}>Enzo Spagnolli</p>
+        <ul className={show ? styles.show : styles.hide}>
+          {isMobile ? (
             <li>
-              <Link href="/"> Home</Link>
+              <a onClick={() => handleShowMenu(!show)}> close </a>
             </li>
-            <li>
-              <Link href="/about"> About</Link>
-            </li>
-            <li>
-              <Link href="/projects"> Projects</Link>
-            </li>
-            <li>
-              <Link href="/contact"> Contact</Link>
-            </li>
-          </ul>
-        </div>
+          ) : null}
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="about">About</a>
+          </li>
+          <li>
+            <a href="projects">Projects</a>
+          </li>
+          <li>
+            <a href="contact">Contact</a>
+          </li>
+        </ul>
+        {isMobile ? (
+          <button onClick={() => handleShowMenu(!show)}>Menu</button>
+        ) : null}
       </nav>
     </header>
   );
